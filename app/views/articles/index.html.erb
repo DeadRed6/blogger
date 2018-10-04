@@ -1,0 +1,17 @@
+<%# view template for the index method of the articles controller %>
+<%# if an erb clause starts with an equals sign, then the result of the code will not be hidden.%>
+
+<h1>All Articles</h1>
+
+<ul id="articles">
+	<% @articles.each do |article| %>
+		<li>
+			<%= link_to article.title, article_path(article), class: 'article_title'  %> 
+			<%# use the article_path route helper function to generate links.%>
+		</li>
+	<% end %>
+</ul>
+
+<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+
+<%# set link according to the relevant routing table entry %>
