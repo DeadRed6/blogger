@@ -8,6 +8,9 @@ class ArticlesController < ApplicationController
 	def show
 		#the view links to articles/id, which goes to a SHOW method.
 		@article = Article.find(params[:id])
+
+		@comment = Comment.new #create a new comment to reference
+		@comment.article_id = @article.id
 	end
 
 	def new
@@ -37,7 +40,7 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-		article.update(article_params) #helper function again
+		@article.update(article_params) #helper function again
 		
 		flash.notice = "Article '#{@article.title}' Updated!"
 
