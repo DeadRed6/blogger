@@ -9,6 +9,13 @@ Tags:
 </p>
 
 <br />
+
+<p>
+  <% if @article.image.exists? %>
+    <%= image_tag @article.image.url %>
+  <% end %>
+</p>
+<br />
 <p><%= @article.body %></p>
 
 <br />
